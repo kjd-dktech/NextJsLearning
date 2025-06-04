@@ -1,16 +1,16 @@
 import { notFound } from 'next/navigation';
 
-type Props = {
+export default function DevProfile({
+  searchParams,
+}: {
   searchParams: {
     name?: string;
     bio?: string;
     picture?: string;
     skills?: string;
   };
-};
-
-export default function DevProfile({ searchParams }: Props) {
-  if (!searchParams.name) return notFound(); // en cas de lien invalide
+}) {
+  if (!searchParams.name) return notFound(); // Si le lien est invalide
 
   const skills = searchParams.skills?.split(',') ?? [];
 
